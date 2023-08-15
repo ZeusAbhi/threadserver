@@ -7,10 +7,17 @@ require("dotenv").config()
 
 
 app.use(express.json());
-app.use(cors({
-  origin: process.env.FRONTEND_URL,
-  credentials: true
-}));
+// app.use(cors({
+//   origin: process.env.FRONTEND_URL,
+//   credentials: true
+// }));
+const cors = require('cors');
+const corsOptions ={
+    origin:process.env.FRONTEND_URL, 
+    credentials:true,            //access-control-allow-credentials:true
+    optionSuccessStatus:200
+}
+app.use(cors(corsOptions));
 
 app.use("/users", userRouter);
 const stripe=require('stripe')(process.env.STRIPE_KEY)
