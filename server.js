@@ -7,6 +7,7 @@ require("dotenv").config();
 app.use(
   cors({
     origin: process.env.FRONTEND_URL,
+    methods: "OPTIONS,DELETE,POST,GET,PATCH,PUT,HEAD,"
   })
 );
 app.use(express.json());
