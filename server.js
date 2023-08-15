@@ -12,7 +12,7 @@ app.use(cors({
   credentials: true
 }));
 app.get("/",(req,res)=>{
-  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Origin", `${process.env.FRONTEND_URL}`);
 	res.setHeader("Access-Control-Allow-Credentials", "true");
 	res.setHeader("Access-Control-Max-Age", "1800");
 	res.setHeader("Access-Control-Allow-Headers", "content-type");
