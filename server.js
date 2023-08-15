@@ -13,7 +13,10 @@ app.use(express.json());
 //   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
 //   allowedHeaders: "Content-Type",
 // }));
-app.use(cors());
+app.use(cors({
+  origin: process.env.FRONTEND_URL
+}));
+console.log(`set cors for the frontend at: ${process.env.FRONTEND_URL}`)
 app.use("/users", userRouter);
 const stripe=require('stripe')(process.env.STRIPE_KEY)
 mongoose
