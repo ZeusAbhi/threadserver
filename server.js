@@ -57,7 +57,7 @@ app.post("/create-checkout-session", async (req, res) => {
 mongoose
   .connect(`${process.env.MONGO_URL}`)
   .then(() => {
-    app.listen(5000, () => {
+    app.listen(process.env.PORT, () => {
       console.log("server started");
     });
   })
