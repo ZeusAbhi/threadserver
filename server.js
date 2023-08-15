@@ -7,13 +7,13 @@ require("dotenv").config()
 
 
 app.use(express.json());
-app.use(cors({
-  origin: "*",
-  credentials: true,
-  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-  allowedHeaders: "Content-Type",
-}));
-
+// app.use(cors({
+//   origin: "*",
+//   credentials: true,
+//   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+//   allowedHeaders: "Content-Type",
+// }));
+app.use(cors());
 app.use("/users", userRouter);
 const stripe=require('stripe')(process.env.STRIPE_KEY)
 mongoose
